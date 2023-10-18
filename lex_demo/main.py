@@ -5,6 +5,7 @@ from __future__ import print_function
 __author__ = "bibow"
 
 
+from silvaengine_utility import Utility
 from .handlers import handlers_init, validate_handler, fulfillment_handler
 
 
@@ -45,6 +46,8 @@ class LexDemo(object):
 
         slots = kwargs["sessionState"]["intent"]["slots"]
         intent = kwargs["sessionState"]["intent"]["name"]
+        self.logger.info(f"intent: {intent}")
+        self.logger.info(f"slots: {Utility.json_dumps(slots)}")
 
         if kwargs["invocationSource"] == "FulfillmentCodeHook":
             fulfillment_result = fulfillment_handler(self.logger, intent, slots)
