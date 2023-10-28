@@ -16,7 +16,7 @@ def deploy() -> list:
             "service": "Demo",
             "class": "LexDemo",
             "functions": {
-                "lex_dispatch": {
+                "booktrip_lex_dispatch": {
                     "is_static": False,
                     "label": "Lex Demo",
                     "query": [],
@@ -40,7 +40,7 @@ class LexDemo(object):
         self.logger = logger
         self.setting = setting
 
-    def lex_dispatch(self, **kwargs):
+    def booktrip_lex_dispatch(self, **kwargs):
         bot = kwargs["bot"]["name"]
         self.logger.info(f"bot: {bot}")
 
